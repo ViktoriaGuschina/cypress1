@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "cypress": "^14.3.2"
+  },
+  "scripts": {
+    "test_chrome_headed": "cypress run --headed --browser chrome",
+    "test_chrome_headless": "cypress run --headless --browser chrome",
+    "test_firefox_headed": "cypress run --headed --browser firefox",
+    "test_edge_headed": "cypress run --headed --browser edge"
+    }
+  }
+
