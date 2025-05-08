@@ -32,11 +32,13 @@ describe("template spec", () => {
         return elements[0].checkValidity();
       })
       .should("be.false");
+    });
   });
-});
 
 describe("Тесты для управления книгами", () => {
   beforeEach(() => {
+    const viewport = Cypress.env(Cypress.env('device') || 'mobile');
+    cy.viewport(viewport.viewportWidth, viewport.viewportHeight);
     cy.visit("/");
     cy.login("test@test.com", "test");
     cy.contains("Добро пожаловать test@test.com").should("be.visible");
@@ -60,13 +62,8 @@ describe("Тесты для управления книгами", () => {
   it("Создание избранной книги с последующим ее удалением из Избранного", () => {
     cy.generateName(10).then((title) => {
       cy.generateName(10).then((author) => {
-        // Добавление новой книги
         cy.addNewBook(title, author, true);
-        
-        // Переход к избранным
         cy.contains("Favorites").click();
-        
-        // Сравнение длины коллекции после удаления
         cy.compareCollectionsLengthAfterRemovingFromFavorite(".btn-secondary");
       });
     });

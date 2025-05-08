@@ -6,7 +6,9 @@
     "test_chrome_headed": "cypress run --headed --browser chrome",
     "test_chrome_headless": "cypress run --headless --browser chrome",
     "test_firefox_headed": "cypress run --headed --browser firefox",
-    "test_edge_headed": "cypress run --headed --browser edge"
+    "test_edge_headed": "cypress run --headed --browser edge",
+    "test:mobile": "cypress run --env device=mobile",
+    "test:laptop": "cypress run --env device=laptop"
     }
   }
 
